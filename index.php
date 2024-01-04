@@ -39,6 +39,8 @@ function validate()
 function handleForm()
 {
     // TODO: form related tasks (step 1)
+    $selectedProducts = $_POST["products"];
+    print_r("The selected products are " . implode(", " , $selectedProducts));
 
     // Validation (step 2)
     $invalidFields = validate();
