@@ -9,6 +9,12 @@ declare(strict_types=1);
 // We are going to use session variables so we need to enable sessions
 session_start();
 
+// Store the current input data in the session
+$_SESSION['input_data'] = $_POST;
+
+// Use the current input data, if available
+$inputData = $_SESSION['input_data'] ?? [];
+
 // Use this function when you need to need an overview of these variables
 function whatIsHappening() {
     echo '<h2>$_GET</h2>';
@@ -61,6 +67,7 @@ function handleForm()
         echo '<div class="alert alert-danger">';
         echo "<strong>Errors found:</strong><br>" . implode("<br>", $errors);
         echo '</div>';
+
     } else {
         $selectedProducts = $_POST["products"];
         $deliveryAddress = $_POST["street"];
@@ -68,8 +75,9 @@ function handleForm()
         $zipCode = $_POST["zipcode"];
         $city = $_POST["city"];
 
-        echo "Order placed successfully!";
         echo '<div class="alert alert-success" role="alert">';
+        echo "Order placed successfully!";
+        echo '<br>';
         echo "The selected products are: " . implode(", " , $selectedProducts);
         echo '<br>';
         echo "The delivery address is: " . $deliveryAddress . ", " . $addressNumber;
@@ -85,3 +93,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 require 'form-view.php';
+
