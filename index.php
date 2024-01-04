@@ -32,8 +32,6 @@ $totalValue = 0;
 function validate()
 {
     $errors = [];
-    // TODO: This function will send a list of invalid fields back
-    //check if fields are empty
     if (empty($_POST["email"])) {
         $errors['email'] = "Please enter an email address";
     } elseif (!filter_var(($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
@@ -60,7 +58,7 @@ function handleForm()
 {
     $errors = validate();
     if (!empty($errors)) {
-        print_r($errors);
+        print_r("Errors found: " . implode("<br>" , $errors));
     } else {
         $selectedProducts = $_POST["products"];
         $deliveryAddress = $_POST["street"];
@@ -68,7 +66,7 @@ function handleForm()
         $zipCode = $_POST["zipcode"];
         $city = $_POST["city"];
 
-        print_r("The selected products are " . implode(", " , $selectedProducts));
+        print_r("The selected products are " . implode("<br>" , $selectedProducts));
         echo "<br>";
         print_r("The delivery address is " . $deliveryAddress . " " . $addressNumber . " " . $zipCode . " " . "in " . $city);
         echo "<br>";
