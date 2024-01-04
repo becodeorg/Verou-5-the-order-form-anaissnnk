@@ -58,22 +58,22 @@ function validate()
 
 function handleForm()
 {
+    // TODO: form related tasks (step 1)
+    $selectedProducts = $_POST["products"];
+    $deliveryAddress = $_POST["street"];
+    $addressNumber = $_POST["streetnumber"];
+    $zipCode = $_POST["zipcode"];
+    $city = $_POST["city"];
+
+    print_r("The selected products are " . implode(", " , $selectedProducts));
+    echo "<br>";
+    print_r("The delivery address is " . $deliveryAddress . " " . $addressNumber . " " . $zipCode . " " . "in " . $city);
+
     // Validation (step 2)
     $invalidFields = validate();
     if (!empty($invalidFields)) {
         require 'form-view.php';
     } else {
-        // TODO: form related tasks (step 1)
-        $selectedProducts = $_POST["products"];
-        $deliveryAddress = $_POST["street"];
-        $addressNumber = $_POST["streetnumber"];
-        $zipCode = $_POST["zipcode"];
-        $city = $_POST["city"];
-
-        print_r("The selected products are " . implode(", " , $selectedProducts));
-        echo "<br>";
-        print_r("The delivery address is " . $deliveryAddress . " " . $addressNumber . " " . $zipCode . " " . "in " . $city);
-
         echo "Order placed successfully!";
     }
 }
@@ -81,6 +81,6 @@ function handleForm()
 $formSubmitted = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     handleForm();
-} else {
-    require 'form-view.php'; // Display the form initially
 }
+
+require 'form-view.php';
