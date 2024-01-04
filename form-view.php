@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="zipcode">Zipcode</label>
-                    <input type="text" id="zipcode" name="zipcode" class="form-control">
+                    <input type="number" id="zipcode" name="zipcode" class="form-control">
                 </div>
             </div>
         </fieldset>

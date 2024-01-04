@@ -31,35 +31,56 @@ $totalValue = 0;
 
 function validate()
 {
+    $errors = [];
     // TODO: This function will send a list of invalid fields back
-    return [];
+    //check if fields are empty
+    if (empty($_POST["email"])) {
+        $errors['email'] = "Please enter an email address";
+    } elseif (!filter_var(($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
+        $errors["email"] = "Please provide a valid email address";
+    }
+    if (empty($_POST["street"])) {
+        $errors["street"] = "Please enter a valid street address";
+    }
+    if (empty($_POST["streetnumber"])) {
+        $errors["streetnumber"] = "Please enter a valid street number";
+    }
+    if (empty($_POST["city"])) {
+        $errors["city"] = "Please enter a valid city";
+    }
+    if (empty($_POST["zipcode"])) {
+        $errors["zipcode"] = "Please enter a valid zipcode";
+    } elseif (!is_numeric($_POST["zipcode"])) {
+        $errors["zipcode"] = "Please provide a valid zipcode";
+    }
+    return $errors;
 }
 
 function handleForm()
 {
-    // TODO: form related tasks (step 1)
-    $selectedProducts = $_POST["products"];
-    $deliveryAddress = $_POST["street"];
-    $addressNumber = $_POST["streetnumber"];
-    $zipCode = $_POST["zipcode"];
-    $city = $_POST["city"];
-
-    print_r("The selected products are " . implode(", " , $selectedProducts));
-    echo "<br>";
-    print_r("The delivery address is " . $deliveryAddress . " " . $addressNumber . " " . $zipCode . " " . "in " . $city);
-
     // Validation (step 2)
     $invalidFields = validate();
     if (!empty($invalidFields)) {
-        // TODO: handle errors
+        require 'form-view.php';
     } else {
-        // TODO: handle successful submission
+        // TODO: form related tasks (step 1)
+        $selectedProducts = $_POST["products"];
+        $deliveryAddress = $_POST["street"];
+        $addressNumber = $_POST["streetnumber"];
+        $zipCode = $_POST["zipcode"];
+        $city = $_POST["city"];
+
+        print_r("The selected products are " . implode(", " , $selectedProducts));
+        echo "<br>";
+        print_r("The delivery address is " . $deliveryAddress . " " . $addressNumber . " " . $zipCode . " " . "in " . $city);
+
+        echo "Order placed successfully!";
     }
 }
 
 $formSubmitted = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     handleForm();
+} else {
+    require 'form-view.php'; // Display the form initially
 }
-
-require 'form-view.php';
