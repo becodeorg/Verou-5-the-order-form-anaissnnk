@@ -49,9 +49,8 @@ function handleForm()
     }
 }
 
-// TODO: replace this if by an actual check for the form to be submitted
 $formSubmitted = false;
-if ($formSubmitted) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     handleForm();
 }
 
