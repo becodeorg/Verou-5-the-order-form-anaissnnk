@@ -21,7 +21,6 @@ function whatIsHappening() {
     var_dump($_SESSION);
 }
 
-// TODO: provide some products (you may overwrite the example)
 $products = [
     ['name' => 'Your favourite drink', 'price' => 2.5],
     ['name' => 'Your favourite snack', 'price' => 2.5],
@@ -40,7 +39,14 @@ function handleForm()
 {
     // TODO: form related tasks (step 1)
     $selectedProducts = $_POST["products"];
+    $deliveryAddress = $_POST["street"];
+    $addressNumber = $_POST["streetnumber"];
+    $zipCode = $_POST["zipcode"];
+    $city = $_POST["city"];
+
     print_r("The selected products are " . implode(", " , $selectedProducts));
+    echo "<br>";
+    print_r("The delivery address is " . $deliveryAddress . " " . $addressNumber . " " . $zipCode . " " . "in " . $city);
 
     // Validation (step 2)
     $invalidFields = validate();
