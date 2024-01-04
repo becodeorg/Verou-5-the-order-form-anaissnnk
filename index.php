@@ -24,6 +24,8 @@ function whatIsHappening() {
 // TODO: provide some products (you may overwrite the example)
 $products = [
     ['name' => 'Your favourite drink', 'price' => 2.5],
+    ['name' => 'Your favourite snack', 'price' => 2.5],
+    ['name' => 'Your favourite ice-cream', 'price' => 2.5],
 ];
 
 $totalValue = 0;
