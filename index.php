@@ -58,7 +58,9 @@ function handleForm()
 {
     $errors = validate();
     if (!empty($errors)) {
-        print_r("Errors found: " . implode("<br>" , $errors));
+        echo '<div class="alert alert-danger">';
+        echo "<strong>Errors found:</strong><br>" . implode("<br>", $errors);
+        echo '</div>';
     } else {
         $selectedProducts = $_POST["products"];
         $deliveryAddress = $_POST["street"];
