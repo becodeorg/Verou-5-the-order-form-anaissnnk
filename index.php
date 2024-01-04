@@ -68,11 +68,14 @@ function handleForm()
         $zipCode = $_POST["zipcode"];
         $city = $_POST["city"];
 
-        print_r("The selected products are " . implode("<br>" , $selectedProducts));
-        echo "<br>";
-        print_r("The delivery address is " . $deliveryAddress . " " . $addressNumber . " " . $zipCode . " " . "in " . $city);
-        echo "<br>";
-        echo "Order placed successfully";
+        echo "Order placed successfully!";
+        echo '<div class="alert alert-success" role="alert">';
+        echo "The selected products are: " . implode(", " , $selectedProducts);
+        echo '<br>';
+        echo "The delivery address is: " . $deliveryAddress . ", " . $addressNumber;
+        echo '<br>';
+        echo $zipCode . ", " . $city;
+        echo '</div>';
     }
 }
 
