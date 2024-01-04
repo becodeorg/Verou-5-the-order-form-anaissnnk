@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css"
           rel="stylesheet"/>
-    <title>Ananaïs' Cozy Spot</title>
+    <title>Your fancy store</title>
 </head>
 <body>
 <div class="container">
@@ -65,7 +65,7 @@
             <legend>Products</legend>
             <?php foreach ($products as $i => $product): ?>
                 <label>
-					<?php // <?= is equal to <?php echo ?>
+                    <?php // <?= is equal to <?php echo ?>
                     <input type="checkbox" value="1" name="products[<?php echo $i ?>]"/> <?php echo $product['name'] ?> -
                     &euro; <?= number_format($product['price'], 2) ?></label><br />
             <?php endforeach; ?>
