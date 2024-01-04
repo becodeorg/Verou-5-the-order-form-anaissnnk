@@ -1,8 +1,5 @@
 <?php
 
-// This file is your starting point (= since it's the index)
-// It will contain most of the logic, to prevent making a messy mix in the html
-
 // This line makes PHP behave in a more strict way
 declare(strict_types=1);
 
@@ -21,9 +18,12 @@ function whatIsHappening() {
     var_dump($_SESSION);
 }
 
-// TODO: provide some products (you may overwrite the example)
 $products = [
-    ['name' => 'Your favourite drink', 'price' => 2.5],
+    ['name' => 'Fudgy Matcha Brownie', 'price' => 5],
+    ['name' => 'Chocolate Fondant', 'price' => 4.5],
+    ['name' => '5x Fried Pork Dumplings', 'price' => 8],
+    ['name' => '3x Korean Pancakes (vegetarian)', 'price' => 4],
+    ['name' => '2px Inari Sushis', 'price' => 3.5],
 ];
 
 $totalValue = 0;
