@@ -38,8 +38,11 @@ $totalValue = 0;
 function validate()
 {
     $errors = [];
+    if (!isset($_POST["products"])) {
+        $errors["products"] = "Please select a product";
+    }
     if (empty($_POST["email"])) {
-        $errors['email'] = "Please enter an email address";
+        $errors["email"] = "Please enter an email address";
     } elseif (!filter_var(($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
         $errors["email"] = "Please provide a valid email address";
     }
