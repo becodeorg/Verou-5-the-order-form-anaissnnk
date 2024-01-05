@@ -12,7 +12,7 @@ session_start();
 // Store the current input data in the session
 $_SESSION['input_data'] = $_POST;
 
-// Use the current input data, if available
+// Use the current input data, if available, otherwise return empty string
 $inputData = $_SESSION['input_data'] ?? [];
 
 // Use this function when you need to need an overview of these variables
@@ -28,9 +28,9 @@ function whatIsHappening() {
 }
 
 $products = [
-    ['name' => 'Your favourite drink', 'price' => 2.5],
-    ['name' => 'Your favourite snack', 'price' => 2.5],
-    ['name' => 'Your favourite ice-cream', 'price' => 2.5],
+    ['name' => 'Computer-shaped punching ball', 'price' => 25.5],
+    ['name' => 'Selection of soothing tea blends', 'price' => 12.5],
+    ['name' => 'Pillow to scream into', 'price' => 5.5],
 ];
 
 $totalValue = 0;
