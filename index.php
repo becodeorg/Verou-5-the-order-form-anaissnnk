@@ -73,10 +73,10 @@ function handleForm()
 
     } else {
         $selectedProducts = $_POST["products"];
-        $deliveryAddress = $_POST["street"];
-        $addressNumber = $_POST["streetnumber"];
-        $zipCode = $_POST["zipcode"];
-        $city = $_POST["city"];
+        $deliveryAddress = htmlspecialchars($_POST["street"]);
+        $addressNumber = htmlspecialchars($_POST["streetnumber"]);
+        $zipCode = htmlspecialchars($_POST["zipcode"]);
+        $city = htmlspecialchars($_POST["city"]);
 
         echo '<div class="alert alert-success" role="alert">';
         echo "Order placed successfully!";
