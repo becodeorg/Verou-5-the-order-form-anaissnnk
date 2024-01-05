@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css"
           rel="stylesheet"/>
-    <title>Your fancy store</title>
+    <title>The Anger Issues Spot</title>
 </head>
 <body>
 <div class="container">
@@ -74,7 +74,7 @@
         <button type="submit" class="btn btn-primary">Order!</button>
     </form>
 
-    <footer>You already ordered <strong>&euro; <?php echo $totalValue ?></strong> in food and drinks.</footer>
+    <footer>You already ordered <strong>&euro; <?php echo $totalValue ?></strong> to calm your nerves.</footer>
 </div>
 
 <style>
